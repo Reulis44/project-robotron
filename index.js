@@ -1,5 +1,16 @@
-const robo = document.querySelector('.robo');
+const controle = document.querySelectorAll('.controle-ajuste');
 
-robo.addEventListener('click', () => {
-    alert('Oi, tudo bem?');
-});
+controle.forEach( (elemento) => {
+    elemento.addEventListener('click', (evento) => {
+        manipulaDados(evento.target.textContent, evento.target.parentNode);
+    })
+})
+
+function manipulaDados (operador, controle) {
+    const peca = controle.querySelector('.controle-contador')
+    if (operador === "+") {
+        peca.value = parseInt(peca.value) + 1
+    } else {
+        peca.value = parseInt(peca.value) - 1
+    }
+}
